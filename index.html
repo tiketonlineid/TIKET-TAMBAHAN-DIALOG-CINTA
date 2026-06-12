@@ -1,25 +1,15 @@
-<!DOCTYPE html><html><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Dialog Cinta Vol.5</title>
+<!DOCTYPE html><html lang="id"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Dialog Cinta Fest Vol.5</title>
 <style>
-body{margin:0;font-family:Arial;background:#f3f3f3} .nav{background:#fff;padding:18px;display:flex;justify-content:space-between}.logo{font-size:42px;font-weight:900}
-.banner img{width:100%}.title{display:flex;justify-content:space-between;padding:20px;background:#fff}
-.box{background:#fff;margin:15px;border-radius:16px;overflow:hidden}.head{padding:20px;font-weight:700;cursor:pointer;display:flex;justify-content:space-between}
-.content{display:none;padding:20px;line-height:1.8}.active .content{display:block}
-footer{background:#151515;color:#fff;padding:40px}.btn{position:fixed;left:15px;right:15px;bottom:15px;background:#ff7a00;color:#fff;padding:18px;text-align:center;border-radius:15px;text-decoration:none}
+body{margin:0;font-family:Arial;background:#f3f3f3;padding-bottom:90px}.nav{background:#fff;padding:16px;display:flex;justify-content:space-between;align-items:center}.logo{font-size:42px;font-weight:900}
+.banner img{width:100%;display:block}.card{background:#fff;margin:15px;border-radius:18px;padding:18px}.row{display:flex;justify-content:space-between;align-items:center}
+button{padding:8px 12px}.buy{position:fixed;left:10px;right:10px;bottom:10px;background:#ff7a00;color:#fff;border:none;padding:18px;border-radius:14px;font-weight:bold}
 </style></head><body>
-<div class="nav"><div class="logo">joytix.</div><div>⌕ ☰</div></div>
-<div class="banner"><img src="banner.png"></div>
-<div class="title"><h2>Kategori Tiket</h2><u>Denah Acara</u></div>
-<div class="box active"><div class="head" onclick="t(this)">EARLY BIRD <span>⌄</span></div><div class="content">Kategori tiket tersedia.</div></div>
-<div class="box"><div class="head" onclick="t(this)">Deskripsi Acara <span>⌄</span></div><div class="content">
-Sekarang persiapkan dirimu untuk <b>DIALOG CINTA FEST VOL.5</b><br><br>
-Festival ini akan digelar dengan menghadirkan deretan bintang tamu yang luar biasa.<br><br>
-1. NDX AKA<br>2. More to come<br><br>
-<b>Tempat :</b> Kota Blitar<br><b>Tanggal :</b> 28 Agustus 2026<br><br>
-Segera amankan tiketmu hanya di Joytix.id sebelum kehabisan!
-</div></div>
-<div class="box"><div class="head" onclick="t(this)">Syarat dan Ketentuan <span>⌄</span></div><div class="content">
-1. Tiket dapat dibeli melalui joytix.id.<br>2. Pembelian selain joytix.id bukan tanggung jawab promotor.<br>3. Anak ≤5 tahun wajib didampingi.<br>4. Usia 5 tahun wajib membeli tiket.<br>5. Harga termasuk pajak.<br>6. Isi data sesuai identitas.<br>7. No Refund/Upgrade/Downgrade.<br>8. QR muncul saat penukaran gelang.<br>9. QR hanya 1x scan.<br>10. Single Entry.<br>11. https://bit.ly/surat_kuasa_penukaran_tiket
-</div></div>
-<footer><div style="font-size:60px;font-weight:900">joytix.</div><p>Your Ticket to Excitement</p><h2>Tentang Kami</h2><p>Tentang Kami</p></footer>
-<a class="btn" href="from.html">LANJUTKAN PEMBELIAN</a>
-<script>function t(e){e.parentNode.classList.toggle('active')}</script></body></html>
+<div class='nav'><div class='logo'>joytix.</div><div>⌕ ☰</div></div>
+<div class='banner'><img src='176.jpg'></div>
+<div class='card'><div class='row'><b>Festival Rp85.000</b><div><button onclick="c('f',-1)">-</button> <span id='f'>0</span> <button onclick="c('f',1)">+</button></div></div></div>
+<div class='card'><div class='row'><b>VIP Rp110.000</b><div><button onclick="c('v',-1)">-</button> <span id='v'>0</span> <button onclick="c('v',1)">+</button></div></div></div>
+<button class='buy' onclick='go()'>LANJUTKAN PEMBELIAN</button>
+<script>
+function c(id,n){let e=document.getElementById(id);let x=Math.max(0,Math.min(5,+e.innerText+n));e.innerText=x;}
+function go(){localStorage.setItem('festival',f.innerText);localStorage.setItem('vip',v.innerText);location='from.html';}
+</script></body></html>
