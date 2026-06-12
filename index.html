@@ -1,0 +1,633 @@
+here <!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Category Tiket - Joytix</title>
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial, Helvetica, sans-serif;
+}
+
+body{
+    background:#f5f5f5;
+    color:#111;
+}
+
+
+/* NAVBAR */
+.navbar{
+    height:85px;
+    background:white;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    padding:0 25px;
+    position:sticky;
+    top:0;
+    z-index:99;
+    box-shadow:0 2px 12px #0002;
+}
+
+.logo{
+    font-size:45px;
+    font-weight:900;
+    letter-spacing:-3px;
+}
+
+.nav-right{
+    display:flex;
+    gap:20px;
+    align-items:center;
+}
+
+.icon{
+    font-size:30px;
+    cursor:pointer;
+}
+
+
+/* BANNER */
+.banner{
+    width:100%;
+    overflow:hidden;
+}
+
+.banner img{
+    width:100%;
+    display:block;
+}
+
+
+/* CONTENT */
+.container{
+    max-width:1100px;
+    margin:auto;
+    padding:25px;
+}
+
+
+/* TITLE */
+.title{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    margin-bottom:25px;
+}
+
+.title h1{
+    font-size:38px;
+}
+
+.denah{
+    text-decoration:underline;
+    font-size:25px;
+}
+
+
+/* ACCORDION */
+.box{
+    background:white;
+    border-radius:20px;
+    margin-bottom:20px;
+    overflow:hidden;
+    box-shadow:0 3px 15px #0001;
+}
+
+.box-head{
+    padding:25px;
+    font-size:28px;
+    font-weight:bold;
+    display:flex;
+    justify-content:space-between;
+    cursor:pointer;
+}
+
+.arrow{
+    transition:.3s;
+}
+
+.content{
+    max-height:0;
+    overflow:hidden;
+    transition:.4s;
+    padding:0 25px;
+}
+
+.box.active .content{
+    max-height:1000px;
+    padding-bottom:25px;
+}
+
+.box.active .arrow{
+    transform:rotate(180deg);
+}
+
+
+/* TICKET CARD */
+.ticket{
+    border:1px solid #ddd;
+    border-radius:18px;
+    padding:20px;
+    margin-bottom:20px;
+}
+
+
+.ticket h2{
+    font-size:24px;
+}
+
+.ticket p{
+    color:#777;
+    font-size:18px;
+    margin:10px 0;
+}
+
+
+.price{
+    font-size:25px;
+    font-weight:bold;
+}
+
+
+.status{
+    display:inline-block;
+    background:#15b75a;
+    color:white;
+    padding:8px 20px;
+    border-radius:20px;
+    margin-top:15px;
+    font-weight:bold;
+}
+
+
+/* COUNTER */
+.counter{
+    display:flex;
+    gap:15px;
+    align-items:center;
+    margin-top:20px;
+}
+
+
+.counter button{
+    width:45px;
+    height:45px;
+    border:none;
+    background:#111;
+    color:white;
+    border-radius:50%;
+    font-size:25px;
+    cursor:pointer;
+}
+
+.qty{
+    font-size:25px;
+}
+
+
+/* DESCRIPTION */
+.text{
+    line-height:1.7;
+    font-size:18px;
+}
+
+
+/* FOOTER */
+footer{
+    background:#111;
+    color:white;
+    padding:60px 25px;
+    text-align:center;
+    margin-top:50px;
+}
+
+.footer-logo{
+    font-size:65px;
+    font-weight:900;
+    margin-bottom:20px;
+}
+
+footer h2{
+    font-size:30px;
+}
+
+footer p{
+    margin-top:15px;
+    font-size:20px;
+}
+
+
+/* FLOAT BUTTON */
+.float{
+    position:fixed;
+    bottom:25px;
+    right:20px;
+    animation:updown 1.5s infinite;
+}
+
+.float button{
+    background:#111;
+    color:white;
+    border:none;
+    padding:15px 25px;
+    border-radius:30px;
+    cursor:pointer;
+}
+
+
+@keyframes updown{
+0%,100%{transform:translateY(0)}
+50%{transform:translateY(-12px)}
+}
+
+
+/* RESPONSIVE */
+@media(max-width:600px){
+
+.logo{
+font-size:38px;
+}
+
+.navbar{
+height:75px;
+padding:0 15px;
+}
+
+.title h1{
+font-size:28px;
+}
+
+.denah{
+font-size:18px;
+}
+
+.container{
+padding:15px;
+}
+
+.box-head{
+font-size:22px;
+}
+
+.banner img{
+min-height:180px;
+object-fit:cover;
+}
+
+.ticket h2{
+font-size:20px;
+}
+
+}
+</style>
+
+
+</head>
+
+
+<body>
+
+
+<!-- NAVBAR -->
+<div class="navbar">
+
+<div class="logo">
+joytix.
+</div>
+
+
+<div class="nav-right">
+<div class="icon">⌕</div>
+<div class="icon">☰</div>
+</div>
+
+</div>
+
+
+
+<!-- BANNER -->
+<div class="banner">
+
+<img src="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD...">
+
+</div>
+
+
+
+<div class="container">
+
+
+<div class="title">
+
+<h1>Kategori Tiket</h1>
+
+<div class="denah">
+Denah Acara
+</div>
+
+</div>
+
+
+
+<!-- CATEGORY -->
+
+<div class="box active">
+
+<div class="box-head" onclick="toggle(this)">
+EARLY BIRD
+<span class="arrow">⌄</span>
+</div>
+
+
+<div class="content">
+
+
+<div class="ticket">
+
+<h2>Early Bird - Festival</h2>
+
+<p>
+Maksimal Pembelian 5 Dalam 1 Akun
+</p>
+
+
+<div class="price">
+Rp. 85.000
+</div>
+
+
+<div class="status">
+ON SALE
+</div>
+
+
+<div class="counter">
+
+<button onclick="ubah('fest',-1)">-</button>
+
+<div class="qty" id="fest">
+0
+</div>
+
+<button onclick="ubah('fest',1)">+</button>
+
+</div>
+
+
+</div>
+
+
+
+
+<div class="ticket">
+
+<h2>
+Early Bird - VIP
+</h2>
+
+<p>
+Maksimal Pembelian 5 Dalam 1 Akun
+</p>
+
+
+<div class="price">
+Rp.110.000
+</div>
+
+
+<div class="status">
+ON SALE
+</div>
+
+
+<div class="counter">
+
+<button onclick="ubah('vip',-1)">-</button>
+
+<div class="qty" id="vip">
+0
+</div>
+
+<button onclick="ubah('vip',1)">+</button>
+
+</div>
+
+
+</div>
+
+
+
+</div>
+
+</div>
+
+
+
+
+
+<!-- DESKRIPSI -->
+
+<div class="box">
+
+<div class="box-head" onclick="toggle(this)">
+Deskripsi Acara
+<span class="arrow">⌄</span>
+</div>
+
+
+<div class="content">
+
+
+<div class="text">
+
+Sekarang persiapkan dirimu untuk
+DIALOG CINTA FEST VOL.5
+
+<br><br>
+
+Festival ini akan digelar dengan menghadirkan deretan bintang tamu yang luar biasa.
+
+<br><br>
+
+Diantaranya:
+<br>
+NDX AKA
+<br>
+More to come
+
+<br><br>
+
+Tempat : Kota Blitar
+<br>
+Tanggal : 28 Agustus 2026
+
+<br><br>
+
+Ayo, jangan lewatkan konser terbesar di Kota Blitar dan jadilah bagian dari keseruan bersama teman, pasangan, dan keluarga!
+
+<br><br>
+
+Segera amankan tiketmu hanya di Joytix.id sebelum kehabisan!
+
+</div>
+
+
+</div>
+
+</div>
+
+
+
+
+
+
+<!-- SYARAT -->
+
+<div class="box">
+
+<div class="box-head" onclick="toggle(this)">
+Syarat & Ketentuan
+<span class="arrow">⌄</span>
+</div>
+
+
+<div class="content">
+
+<div class="text">
+
+SYARAT DAN KETENTUAN TIKET:
+
+<br><br>
+
+1. Tiket dapat dibeli melalui laman joytix.id,
+
+<br>
+2. Pembelian tiket selain melalui joytix.id TIDAK MENJADI TANGGUNG JAWAB PROMOTOR.
+
+<br>
+3. Usia dibawah atau sama dengan 5 tahun wajib didampingi orang tua.
+
+<br>
+4. Anak mulai usia 5 tahun wajib membeli tiket.
+
+<br>
+5. Harga sudah termasuk pajak.
+
+<br>
+6. Pastikan data sesuai identitas.
+
+<br>
+7. Tiket tidak dapat dikembalikan.
+
+<br>
+8. QR code muncul saat periode penukaran gelang.
+
+<br>
+9. QR code hanya dapat scan satu kali.
+
+<br>
+10. Gelang tiket Single Entry.
+
+<br>
+11. Surat kuasa:
+https://bit.ly/surat_kuasa_penukaran_tiket
+
+
+</div>
+
+
+</div>
+
+</div>
+
+
+
+</div>
+
+
+
+
+
+<footer>
+
+<div class="footer-logo">
+joytix.
+</div>
+
+
+<h2>
+Your Ticket to Excitement
+</h2>
+
+
+<p>
+@dialog_cinta
+</p>
+
+
+<p>
+Whatsapp Admin : 0882-1091-7572
+</p>
+
+
+</footer>
+
+
+
+<div class="float">
+
+<button onclick="location.href='from.html'">
+LANJUT
+</button>
+
+</div>
+
+
+
+
+<script>
+
+
+function toggle(el){
+
+el.parentElement.classList.toggle("active");
+
+}
+
+
+
+function ubah(id,val){
+
+let el=document.getElementById(id);
+
+let angka=parseInt(el.innerHTML);
+
+angka+=val;
+
+
+if(angka<0){
+angka=0;
+}
+
+
+if(angka>5){
+angka=5;
+}
+
+
+el.innerHTML=angka;
+
+}
+
+
+</script>
+
+
+</body>
+</html>
